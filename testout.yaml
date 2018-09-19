@@ -1,0 +1,12 @@
+---
+- name: Verify NFS Shared Volumes on Hosts
+  hosts: nfs
+  tasks:
+    - name: check volume and output message
+      shell: exportfs
+      register: result
+    - debug:
+        msg: "{{ result.stdout_lines }}"
+    - fail:
+        msg: "Quitting, no NFS share set"
+      when: result.stdout_lines is undefined

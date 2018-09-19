@@ -1,0 +1,151 @@
+2018-09-19 19:20:44,202 p=3337 u=root |   [WARNING]: Unable to parse /root/RH-OCP-AD-HW/hosts as an inventory source
+
+2018-09-19 19:20:44,202 p=3337 u=root |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2018-09-19 19:20:44,204 p=3337 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2018-09-19 19:20:44,333 p=3337 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: nfs
+
+2018-09-19 19:20:44,333 p=3337 u=root |  playbook: testout.yaml
+2018-09-19 19:20:59,848 p=3345 u=root |   [WARNING]: Unable to parse /root/RH-OCP-AD-HW/hosts as an inventory source
+
+2018-09-19 19:20:59,848 p=3345 u=root |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2018-09-19 19:20:59,850 p=3345 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2018-09-19 19:21:00,074 p=3345 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: nfs
+
+2018-09-19 19:21:00,075 p=3345 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:21:00,075 p=3345 u=root |  skipping: no hosts matched
+2018-09-19 19:21:00,076 p=3345 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:21:33,486 p=3375 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:21:33,498 p=3375 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:21:36,615 p=3375 u=root |  ok: [support1.b39a.internal]
+2018-09-19 19:21:36,620 p=3375 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:21:37,125 p=3375 u=root |  changed: [support1.b39a.internal]
+2018-09-19 19:21:37,132 p=3375 u=root |  TASK [debug] **************************************************************************************************************************
+2018-09-19 19:21:37,160 p=3375 u=root |  skipping: [support1.b39a.internal]
+2018-09-19 19:21:37,162 p=3375 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:21:37,162 p=3375 u=root |  support1.b39a.internal     : ok=2    changed=1    unreachable=0    failed=0   
+2018-09-19 19:22:21,512 p=3408 u=root |  ERROR! conflicting action statements: debug, shell
+
+The error appears to have been in '/root/RH-OCP-AD-HW/testout.yaml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: check volume and output message
+      ^ here
+
+
+The error appears to have been in '/root/RH-OCP-AD-HW/testout.yaml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: check volume and output message
+      ^ here
+
+exception type: <class 'ansible.errors.AnsibleParserError'>
+exception: conflicting action statements: debug, shell
+
+The error appears to have been in '/root/RH-OCP-AD-HW/testout.yaml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: check volume and output message
+      ^ here
+
+2018-09-19 19:23:25,279 p=3415 u=root |  playbook: testout.yaml
+2018-09-19 19:23:33,420 p=3423 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:23:33,432 p=3423 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:23:36,011 p=3423 u=root |  ok: [support1.b39a.internal]
+2018-09-19 19:23:36,017 p=3423 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:23:36,540 p=3423 u=root |  changed: [support1.b39a.internal]
+2018-09-19 19:23:36,546 p=3423 u=root |  TASK [debug] **************************************************************************************************************************
+2018-09-19 19:23:36,577 p=3423 u=root |  fatal: [support1.b39a.internal]: FAILED! => {"msg": "'msg' and 'var' are incompatible options"}
+2018-09-19 19:23:36,578 p=3423 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:23:36,578 p=3423 u=root |  support1.b39a.internal     : ok=2    changed=1    unreachable=0    failed=1   
+2018-09-19 19:23:52,407 p=3457 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:23:52,418 p=3457 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:23:53,319 p=3457 u=root |  ok: [support1.b39a.internal]
+2018-09-19 19:23:53,324 p=3457 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:23:53,834 p=3457 u=root |  changed: [support1.b39a.internal]
+2018-09-19 19:23:53,840 p=3457 u=root |  TASK [debug] **************************************************************************************************************************
+2018-09-19 19:23:53,872 p=3457 u=root |  ok: [support1.b39a.internal] => {
+    "msg": {
+        "changed": true, 
+        "cmd": "exportfs", 
+        "delta": "0:00:00.003737", 
+        "end": "2018-09-19 19:23:53.815732", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2018-09-19 19:23:53.811995", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "/srv/nfs      \t<world>", 
+        "stdout_lines": [
+            "/srv/nfs      \t<world>"
+        ]
+    }
+}
+2018-09-19 19:23:53,873 p=3457 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:23:53,874 p=3457 u=root |  support1.b39a.internal     : ok=3    changed=1    unreachable=0    failed=0   
+2018-09-19 19:25:09,464 p=3487 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:25:09,475 p=3487 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:25:11,678 p=3487 u=root |  ok: [support1.b39a.internal]
+2018-09-19 19:25:11,684 p=3487 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:25:12,190 p=3487 u=root |  changed: [support1.b39a.internal]
+2018-09-19 19:25:12,196 p=3487 u=root |  TASK [debug] **************************************************************************************************************************
+2018-09-19 19:25:12,229 p=3487 u=root |  ok: [support1.b39a.internal] => {
+    "msg": [
+        "/srv/nfs      \t<world>"
+    ]
+}
+2018-09-19 19:25:12,230 p=3487 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:25:12,230 p=3487 u=root |  support1.b39a.internal     : ok=3    changed=1    unreachable=0    failed=0   
+2018-09-19 19:44:12,503 p=3598 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:44:12,514 p=3598 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:44:14,664 p=3598 u=root |  ok: [support1.b39a.internal]
+2018-09-19 19:44:14,670 p=3598 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:44:15,172 p=3598 u=root |  changed: [support1.b39a.internal]
+2018-09-19 19:44:15,178 p=3598 u=root |  TASK [debug] **************************************************************************************************************************
+2018-09-19 19:44:15,209 p=3598 u=root |  ok: [support1.b39a.internal] => {
+    "msg": [
+        "/srv/nfs      \t<world>"
+    ]
+}
+2018-09-19 19:44:15,216 p=3598 u=root |  TASK [fail] ***************************************************************************************************************************
+2018-09-19 19:44:15,229 p=3598 u=root |  skipping: [support1.b39a.internal]
+2018-09-19 19:44:15,231 p=3598 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:44:15,231 p=3598 u=root |  support1.b39a.internal     : ok=3    changed=1    unreachable=0    failed=0   
+2018-09-19 19:44:36,404 p=3633 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:44:36,416 p=3633 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:44:38,644 p=3633 u=root |  ok: [master2.b39a.internal]
+2018-09-19 19:44:38,669 p=3633 u=root |  ok: [master1.b39a.internal]
+2018-09-19 19:44:38,832 p=3633 u=root |  ok: [master3.b39a.internal]
+2018-09-19 19:44:38,838 p=3633 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:44:39,343 p=3633 u=root |  fatal: [master1.b39a.internal]: FAILED! => {"changed": true, "cmd": "exportfs", "delta": "0:00:00.003030", "end": "2018-09-19 19:44:39.325617", "failed": true, "msg": "non-zero return code", "rc": 127, "start": "2018-09-19 19:44:39.322587", "stderr": "/bin/sh: exportfs: command not found", "stderr_lines": ["/bin/sh: exportfs: command not found"], "stdout": "", "stdout_lines": []}
+2018-09-19 19:44:39,345 p=3633 u=root |  fatal: [master3.b39a.internal]: FAILED! => {"changed": true, "cmd": "exportfs", "delta": "0:00:00.003071", "end": "2018-09-19 19:44:39.325992", "failed": true, "msg": "non-zero return code", "rc": 127, "start": "2018-09-19 19:44:39.322921", "stderr": "/bin/sh: exportfs: command not found", "stderr_lines": ["/bin/sh: exportfs: command not found"], "stdout": "", "stdout_lines": []}
+2018-09-19 19:44:39,346 p=3633 u=root |  fatal: [master2.b39a.internal]: FAILED! => {"changed": true, "cmd": "exportfs", "delta": "0:00:00.003179", "end": "2018-09-19 19:44:39.325804", "failed": true, "msg": "non-zero return code", "rc": 127, "start": "2018-09-19 19:44:39.322625", "stderr": "/bin/sh: exportfs: command not found", "stderr_lines": ["/bin/sh: exportfs: command not found"], "stdout": "", "stdout_lines": []}
+2018-09-19 19:44:39,347 p=3633 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:44:39,347 p=3633 u=root |  master1.b39a.internal      : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-19 19:44:39,347 p=3633 u=root |  master2.b39a.internal      : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-19 19:44:39,348 p=3633 u=root |  master3.b39a.internal      : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-19 19:48:41,060 p=3709 u=root |  PLAY [Verify NFS Shared Volumes on Hosts] *********************************************************************************************
+2018-09-19 19:48:41,071 p=3709 u=root |  TASK [Gathering Facts] ****************************************************************************************************************
+2018-09-19 19:48:43,225 p=3709 u=root |  ok: [support1.b39a.internal]
+2018-09-19 19:48:43,231 p=3709 u=root |  TASK [check volume and output message] ************************************************************************************************
+2018-09-19 19:48:43,738 p=3709 u=root |  changed: [support1.b39a.internal]
+2018-09-19 19:48:43,744 p=3709 u=root |  TASK [debug] **************************************************************************************************************************
+2018-09-19 19:48:43,775 p=3709 u=root |  ok: [support1.b39a.internal] => {
+    "msg": []
+}
+2018-09-19 19:48:43,780 p=3709 u=root |  TASK [fail] ***************************************************************************************************************************
+2018-09-19 19:48:43,793 p=3709 u=root |  skipping: [support1.b39a.internal]
+2018-09-19 19:48:43,794 p=3709 u=root |  PLAY RECAP ****************************************************************************************************************************
+2018-09-19 19:48:43,794 p=3709 u=root |  support1.b39a.internal     : ok=3    changed=1    unreachable=0    failed=0   
