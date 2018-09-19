@@ -3,7 +3,7 @@
 In a Homework environment,
 From bastion as "root"
 
-"  # git clone https://github.com/echuang-crossvale/RH-OCP-AD-HW.git"
-# cd RH-OCP-AD-HW
-# ansible-playbook homework.yaml
+  # git clone https://github.com/echuang-crossvale/RH-OCP-AD-HW.git
+  # cd RH-OCP-AD-HW
+  # ansible-playbook homework.yaml
 
