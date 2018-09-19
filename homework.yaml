@@ -54,7 +54,7 @@
 - name: Post installation configuration
   hosts: localhost
   tasks:
-    - name: make sure you are system:dmin
+    - name: make sure you are system:admin
       shell: oc whoami | grep system:admin
       register: ocwhoami
     - debug:
@@ -63,17 +63,20 @@
 - name: Create PVs for Users
   hosts: nfs
   tasks:
-    - name:
-      script: ????
+    - name: creating NFS directories
+      script: /root/RH-OCP-AD-HW/scripts/create_pvs.sh
     - name: Restarting NFS Server...
       shell: systemctl restart nfs-server
 
-- name: Create 25 definitions files for PVs 5G size
+- name: Create 25 PVs 5G size
   hosts: localhost
+    - name: create pv 5G script
+      script: /root/RH-OCP-AD-HW/scripts/pvs_5Gsize.sh
 
-- name: Create 25 definitions files for PVs 10G size
-
-- name: Create all PVs from definitions files
+- name: Create 25 PVs 10G size
+  hosts: localhost
+    - name: create pv 10G script
+      script: /root/RH-OCP-AD-HW/scripts/pvs_10Gsize.sh
 
 - name: Fix NFS Persistent Volume Recycling
 

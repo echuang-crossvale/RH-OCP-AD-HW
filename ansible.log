@@ -149,3 +149,5 @@ The offending line appears to be:
 2018-09-19 19:48:43,793 p=3709 u=root |  skipping: [support1.b39a.internal]
 2018-09-19 19:48:43,794 p=3709 u=root |  PLAY RECAP ****************************************************************************************************************************
 2018-09-19 19:48:43,794 p=3709 u=root |  support1.b39a.internal     : ok=3    changed=1    unreachable=0    failed=0   
+2018-09-19 22:14:27,528 p=4757 u=root |    hosts (1):
+2018-09-19 22:14:27,528 p=4757 u=root |      support1.b39a.internal
