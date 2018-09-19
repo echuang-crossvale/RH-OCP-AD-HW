@@ -1,10 +1,8 @@
 = OpenShift Container Platform - Advanced Deployment - Homework assignment
 
 In a Homework environment,
-From bastion as "root"
+From bastion as "root" and in "/root" directory
 
-  # cd /root/
   # git clone https://github.com/echuang-crossvale/RH-OCP-AD-HW.git
-  # cd RH-OCP-AD-HW
-  # ansible-playbook homework.yaml
+  # ansible-playbook /root/RH-OCP-AD-HW/homework.yaml
 
