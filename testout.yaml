@@ -1,12 +1,26 @@
 ---
-- name: Verify NFS Shared Volumes on Hosts
-  hosts: nfs
+- name: Verify OpenShift Cluster
+  hosts: masters[0]
   tasks:
-    - name: check volume and output message
-      shell: exportfs
-      register: result
-    - debug:
-        msg: "{{ result.stdout_lines }}"
-    - fail:
-        msg: "Quitting, no NFS share set"
-      when: result.stdout_lines is undefined
+    - name: get all files in the .kube directory
+      archive:
+        path: /root/.kube
+        dest: /root/kube.tar.gz
+    - name: copy the .kube directory from master1 to your bastion
+      fetch:
+        src: /root/kube.tar.gz
+        dest: /root/
+        flat: yes
+- name: Untar .kube
+  hosts: localhost
+  tasks:
+    - name: untar .kube
+      shell: tar -zxvf /root/kube.tar.gz -C /root
+#    - name: check volume and output message
+#      shell: exportfs
+#      register: result
+#    - debug:
+#        msg: "{{ result.stdout_lines }}"
+#    - fail:
+#        msg: "Quitting, no NFS share set"
+#      when: result.stdout_lines is undefined

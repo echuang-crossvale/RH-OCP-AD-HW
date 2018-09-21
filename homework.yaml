@@ -45,11 +45,20 @@
 - name: Verify OpenShift Cluster
   hosts: masters[0]
   tasks:
+    - name: tar .kube dir
+      archive:
+        path: /root/.kube
+        dest: /root/kube.tar.gz
     - name: copy the .kube directory from master1 to your bastion
       fetch:
-        src: /root/.kube
+        src: /root/kube.tar.gz
         dest: /root/
         flat: yes
+- name: Untar .kube
+  hosts: localhost
+  tasks:
+    - name: untar .kube
+      shell: tar -zxvf /root/kube.tar.gz -C /root
 
 - name: Post installation configuration
   hosts: localhost
@@ -69,27 +78,35 @@
       shell: systemctl restart nfs-server
 
 - name: Create 25 PVs 5G size
-  hosts: localhost
+  hosts: masters[0]
+  tasks:
     - name: create pv 5G script
       script: /root/RH-OCP-AD-HW/scripts/pvs_5Gsize.sh
 
 - name: Create 25 PVs 10G size
-  hosts: localhost
+  hosts: masters[0]
+  tasks:
     - name: create pv 10G script
       script: /root/RH-OCP-AD-HW/scripts/pvs_10Gsize.sh
 
 - name: Fix NFS Persistent Volume Recycling
-
+  hosts: nodes
+  tasks:
+    - name: pull recycler
+      shell: docker pull registry.access.redhat.com/openshift3/ose-recycler:latest
+    - name: tag registry
+      shell: docker tag registry.access.redhat.com/openshift3/ose-recycler:latest registry.access.redhat.com/openshift3/ose-recycler:v3.10.14
+    
 - name: Smoke Test
 
 - name: Jenkins Setup
-  hosts: localhost
+  hosts: masters[0]
   tasks:
     - name: jenkins setup
       script: ???
 
 - name: HPA configuration on production deployment of openshift-tasks
-  hosts: localhost
+  hosts: masters[0]
   tasks:
 
 - name: Creation of users for Alpha and Beta clients
@@ -99,4 +116,3 @@
 - name: Setup the environment for Alpha and Beta clients
 
 
-  ....
