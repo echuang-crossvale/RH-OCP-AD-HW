@@ -1,0 +1,12 @@
+---
+- name: Prepare GUID environment variable across all hosts
+  hosts: nodes
+  tasks:
+    - name: stop docker services
+      shell: systemctl stop docker.service
+    - name: docker storage setup
+      shell: docker-storage-setup
+    - name: delete existing stuff
+      shell: rm -rf /var/lib/docker/*
+    - name: start docker services
+      shell: systemctl start docker.service
