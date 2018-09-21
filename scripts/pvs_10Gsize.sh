@@ -2,7 +2,7 @@
 export GUID=`hostname|awk -F. '{print $2}'`
 export volsize=10Gi
 
-for volume in pv{001..025} ; do
+for volume in pv{026..050} ; do
  cat << EOF | oc create -f -
 ---
 apiVersion: v1

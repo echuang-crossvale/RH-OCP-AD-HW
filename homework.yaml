@@ -78,13 +78,13 @@
       shell: systemctl restart nfs-server
 
 - name: Create 25 PVs 5G size
-  hosts: masters[0]
+  hosts: localhost
   tasks:
     - name: create pv 5G script
       script: /root/RH-OCP-AD-HW/scripts/pvs_5Gsize.sh
 
 - name: Create 25 PVs 10G size
-  hosts: masters[0]
+  hosts: localhost
   tasks:
     - name: create pv 10G script
       script: /root/RH-OCP-AD-HW/scripts/pvs_10Gsize.sh
@@ -98,9 +98,13 @@
       shell: docker tag registry.access.redhat.com/openshift3/ose-recycler:latest registry.access.redhat.com/openshift3/ose-recycler:v3.10.14
     
 - name: Smoke Test
+  hosts: localhost
+  tasks: 
+    - name: Create smoke-test project and bring up node-js-mongo app
+      script: /root/RH-OCP-AD-HW/scripts/nodejs_mongo_app.sh
 
 - name: Jenkins Setup
-  hosts: masters[0]
+  hosts: localhost
   tasks:
     - name: jenkins setup
       script: ???
