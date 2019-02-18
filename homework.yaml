@@ -19,6 +19,12 @@
       register: exportedfs
     - debug:
         msg: "{{ exportedfs.stdout_lines }}"
+
+- name: Download Certificate from LDAP server
+  hosts: localhost
+  tasks:
+    - name: Download ca.
+      shell: wget http://ipa.shared.example.opentlc.com/ipa/config/ca.crt -O /root/ipa-ca.crt
     
 - name: Install packages and config auth
   hosts: localhost
