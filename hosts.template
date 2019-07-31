@@ -1,5 +1,5 @@
 #
-# ansible inventory for OpenShift Container Platform  3.11.51
+# ansible inventory for OpenShift Container Platform  3.11.59
 # AgnosticD ansible-config: ocp-ha-lab
 
 [OSEv3:vars]
@@ -24,10 +24,10 @@ openshift_disable_check="disk_availability,memory_availability,docker_image_avai
 # If openshift_image_tag is set, its value is used for all hosts in system container environments, even those that have another version installed. If
 # Use this variable to specify a container image tag to install or configure.
 #openshift_pkg_version is set, its value is used for all hosts in RPM-based environments, even those that have another version installed.
-openshift_image_tag=v3.11.51
+openshift_image_tag=v3.11.59
 # Use this variable to specify an RPM version to install or configure.
-openshift_pkg_version=-3.11.51
-openshift_release=3.11.51
+openshift_pkg_version=-3.11.59
+openshift_release=3.11.59
 
 
 # Node Groups
